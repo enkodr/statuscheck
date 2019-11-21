@@ -1,4 +1,4 @@
-module kununu.com/health
+module kununu.com/status
 
 go 1.13
 

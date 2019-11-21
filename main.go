@@ -4,11 +4,9 @@ import (
 	"flag"
 	"log"
 	"net/http"
-	"os"
-	"path/filepath"
 
-	"kununu.com/health/config"
-	"kununu.com/health/status"
+	"kununu.com/status/check"
+	"kununu.com/status/config"
 )
 
 const defaultPort = "8008"
@@ -18,11 +16,8 @@ var cnf config.Config
 func main() {
 	// Get command parameters
 	var path string
-	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
-	if err != nil {
-		dir = "."
-	}
-	configPath := dir + "/config.yaml"
+	var err error
+	configPath := "config.yaml"
 	flag.StringVar(&path, "c", configPath, "port to listen")
 	flag.Parse()
 	// Load configuration
@@ -43,7 +38,7 @@ func main() {
 
 func statusCheck(w http.ResponseWriter, r *http.Request) {
 	msg := ""
-	chk := status.Make(cnf.Check.Type)
+	chk := check.Make(cnf.Check.Type)
 	alive, err := chk.Check(cnf.Check)
 	if err != nil {
 		log.Printf("ERROR: %s", err)

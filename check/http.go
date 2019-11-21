@@ -1,4 +1,4 @@
-package status
+package check
 
 import (
 	"errors"
@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"kununu.com/health/config"
+	"kununu.com/status/config"
 )
 
 // HTTP represents the configuration of the endpoint to check

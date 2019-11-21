@@ -1,6 +1,6 @@
-package status
+package check
 
-import "kununu.com/health/config"
+import "kununu.com/status/config"
 
 // Status is the interface to be used for creating testing endpoints
 type Status interface {

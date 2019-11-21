@@ -7,7 +7,7 @@
 ### Install from source
 
 ```
-go build -o hc main.go
+go build -o status main.go
 ```
 
 ### Run docker image
@@ -18,14 +18,19 @@ docker run -itd -p 8008:8008 .
 
 ### Build your own image
 
+1. Build this Dockerimage
 ```
-docker build -t kununu/healthcheck
+docker build -t kununu/statuscheck .
 ```
+2. Create your `config.yaml` file
 
+3. Create your final image
 ```
-FROM kununu/healthcheck
+FROM kununu/statuscheck
 
-COPY config.yaml /hc/config.yaml
+COPY config.yaml /sc/config.yaml
+
+CMD [ "/sc/status", "-c", "/sc/config.yaml" ]
 ```
 
 ## Configuration
@@ -53,7 +58,7 @@ If no configuration file is detected, the default values will be applied.
 
 ### HTTP (default)
 
-The HTTP health check allows you to check for an HTTP endpoint: 
+The HTTP status check allows you to check for an HTTP endpoint: 
 
 ```
 port: 8008
