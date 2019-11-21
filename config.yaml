@@ -1,9 +1,0 @@
-port: 8000
-endpoint: "/check"
-okMessage: "success"
-errorMessage: "error"
-check:
-  type: "http"
-  url: "https://google.pt"
-  followRedirects: yes
-  statusCode: 200

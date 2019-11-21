@@ -4,23 +4,28 @@ import (
 	"flag"
 	"log"
 	"net/http"
+	"os"
+	"path/filepath"
 
 	"kununu.com/health/config"
 	"kununu.com/health/status"
 )
 
 const defaultPort = "8008"
-const configPath = "./config.yaml"
 
 var cnf config.Config
 
 func main() {
 	// Get command parameters
 	var path string
+	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	if err != nil {
+		dir = "."
+	}
+	configPath := dir + "/config.yaml"
 	flag.StringVar(&path, "c", configPath, "port to listen")
 	flag.Parse()
 	// Load configuration
-	var err error
 	cnf, err = config.Load(path)
 
 	if err != nil {

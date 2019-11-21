@@ -1,0 +1,9 @@
+port: 8008
+endpoint: "/status"
+okMessage: "ok"
+errorMessage: "fail"
+check:
+  type: "http"
+  url: "http://localhost"
+  followRedirects: false
+  statusCode: 200
