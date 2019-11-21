@@ -47,12 +47,12 @@ errorMessage: "fail"
 If no configuration file is detected, the default values will be applied.
 
 
-| Option       | Type   | Description                                               |
-|--------------|--------|-----------------------------------------------------------|
-| port         | string | The port to listen on. (default: 8008)                    |
-| endpoint     | string | The endpoint to listen on. (default: /status)             | 
-| okMessage    | string | The message to return in case of success. (default: ok)   |
-| errorMessage | string | The message to return in case of failure. (default: fail) |
+| Option       | Type   | Default | Description                                               |
+|--------------|--------|---------|-----------------------------------------------------------|
+| port         | string | 8008    | The port to listen on.                                    |
+| endpoint     | string | /status | The endpoint to listen on.                                | 
+| okMessage    | string | ok      | The message to return in case of success.                 |
+| errorMessage | string | fail    | The message to return in case of failure.                 |
 
 ## Types of status check 
 
@@ -72,11 +72,17 @@ check:
     statusCode: 200
 ```
 
-| Option          | Type   | Description                                               |
-|-----------------|--------|-----------------------------------------------------------|
-| type            | string | The HTTP type sets a request to an HTTP endpoint.         |
-| url             | string | The url to make the HTTP request to. (default: localhost) | 
-| followRedirects | bool   | Sets if it should follow HTTP redirects. (default: false) |
-| statusCode      | int    | The status code to compare to. (default: 200)             |
+| Option          | Type   | Default          | Description                                       |
+|-----------------|--------|------------------|---------------------------------------------------|
+| type            | string | http             | The HTTP type sets a request to an HTTP endpoint. |
+| url             | string | http://localhost | The url to make the HTTP request to.              | 
+| followRedirects | bool   | false            | Sets if it should follow HTTP redirects.          |
+| statusCode      | int    | 200              | The status code to compare to.                    |
 
 
+
+# TODO
+
+- Check for connection status
+- Check for file presence
+- Check for open port
