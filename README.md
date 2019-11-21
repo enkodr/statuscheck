@@ -61,10 +61,10 @@ endpoint: /status
 okMessage: "ok"
 errorMessage: "fail"
 check:
-type: "http""
-url: "https://www.kununu.com"
-followRedirects: false
-statusCode: 200
+    type: "http"
+    url: "https://www.kununu.com"
+    followRedirects: false
+    statusCode: 200
 ```
 
 | Option          | Type   | Description                                               |
