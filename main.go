@@ -23,7 +23,6 @@ func main() {
 	flag.Parse()
 	// Load configuration
 	cnf, err = config.Load(path)
-
 	if err != nil {
 		log.Printf("No config file defined. Loading from defaults.")
 	}
