@@ -46,7 +46,7 @@ json: false
 okMessage: "ok"
 errorMessage: "fail"
 ```
-If no configuration file is detected, the default values will be applied.
+NOTE: If no configuration file is detected, the default values will be applied.
 
 
 | Option       | Type   | Default | Description                                                                            |
