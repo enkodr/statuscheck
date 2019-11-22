@@ -19,10 +19,15 @@ type (
 
 	// Check represents the endpoint's configuration to test/check
 	Check struct {
-		Type            string `yaml:"type"`
+		Type string `yaml:"type"`
+		// HTTP
 		URL             string `yaml:"url"`
 		FollowRedirects bool   `yaml:"followRedirects"`
 		StatusCode      int    `yaml:"statusCode"`
+		// Port
+		Port     int    `yaml:"port"`
+		Address  string `yaml:"address"`
+		Protocol string `yaml:"protocol"`
 	}
 )
 
@@ -39,6 +44,9 @@ func Load(path string) (Config, error) {
 			URL:             "http://localhost",
 			FollowRedirects: false,
 			StatusCode:      200,
+			Port:            80,
+			Address:         "127.0.0.1",
+			Protocol:        "tcp",
 		},
 	}
 	yamlFile, err := ioutil.ReadFile(path)

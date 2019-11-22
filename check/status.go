@@ -12,6 +12,8 @@ func Make(typeName string) Status {
 	switch typeName {
 	case "http":
 		return HTTP{}
+	case "port":
+		return Port{}
 	default:
 		return nil
 	}

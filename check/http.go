@@ -10,10 +10,7 @@ import (
 )
 
 // HTTP represents the configuration of the endpoint to check
-type HTTP struct {
-	Code int
-	URL  string
-}
+type HTTP struct{}
 
 // Check will test the endpoint
 func (h HTTP) Check(config config.Check) (bool, error) {
@@ -47,10 +44,10 @@ func (h HTTP) Check(config config.Check) (bool, error) {
 	}
 
 	// Check if the response code is the expected
-	if config.StatusCode == resp.StatusCode {
-		return true, nil
-	} else {
+	if config.StatusCode != resp.StatusCode {
 		err = fmt.Errorf("expected response '%v' code on '%v' but received '%v'", config.StatusCode, config.URL, resp.StatusCode)
 		return false, err
 	}
+	return true, nil
+
 }

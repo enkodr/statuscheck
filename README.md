@@ -83,10 +83,33 @@ check:
 | followRedirects | bool   | false            | Sets if it should follow HTTP redirects.          |
 | statusCode      | int    | 200              | The status code to compare to.                    |
 
+### Port
+
+The Port status check verifies if a specific port is responding:
+
+```
+port: 8008
+endpoint: /status
+json: true
+okMessage: "ok"
+errorMessage: "fail"
+check:
+    type: "port"
+    address: "127.0.0.1"
+    port: 80
+    protocol: "tcp"
+```
+
+| Option   | Type   | Default   | Description                                       |
+|----------|--------|-----------|---------------------------------------------------|
+| type     | string | http      | The HTTP type sets a request to an HTTP endpoint. |
+| address  | string | 127.0.0.1 | The address to check.                             |
+| port     | int    | 80        | The port to check.                                |
+| protocol | string | tcp       | The protocol to use.                              |
 
 
 # TODO
 
 - Check for specific services connection
 - Check for file presence
-- Check for open port
+- Check for ready service
