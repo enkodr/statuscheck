@@ -1,6 +1,6 @@
 port: 8008
 endpoint: "/status"
-json: true
+json: false
 okMessage: "ok"
 errorMessage: "fail"
 check:
