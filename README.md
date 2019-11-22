@@ -52,7 +52,7 @@ If no configuration file is detected, the default values will be applied.
 |--------------|--------|---------|----------------------------------------------------------------------------------------|
 | port         | string | 8008    | The port to listen on.                                                                 |
 | endpoint     | string | /status | The endpoint to listen on.                                                             | 
-| json         | bool   | false   | Returns the response in JSON. If true, the endpoing name will be used as the JSON key. |
+| json         | bool   | false   | Returns the response in JSON. If true, the endpoint name will be used as the JSON key. |
 | okMessage    | string | ok      | The message to return in case of success.                                              |
 | errorMessage | string | fail    | The message to return in case of failure.                                              |
 
