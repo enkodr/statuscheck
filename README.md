@@ -83,6 +83,6 @@ check:
 
 # TODO
 
-- Check for connection status
+- Check for specific services connection
 - Check for file presence
 - Check for open port

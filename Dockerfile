@@ -3,7 +3,7 @@ FROM golang:1.13 as build
 WORKDIR /sc
 COPY . .
 
-RUN go get -d -v
+RUN go mod download
 RUN CGO_ENABLED=0 GOOS=linux go build -o /sc/status -a -installsuffix cgo main.go
 
 #FROM scratch
