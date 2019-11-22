@@ -12,6 +12,7 @@ type (
 		Port         string `yaml:"port"`
 		Endpoint     string `yaml:"endpoint"`
 		OKMessage    string `yaml:"okMessage"`
+		JSON         bool   `yaml:"json"`
 		ErrorMessage string `yaml:"errorMessage"`
 		Check        Check  `yaml:"check"`
 	}
@@ -30,6 +31,7 @@ func Load(path string) (Config, error) {
 	c := Config{
 		Port:         "8008",
 		Endpoint:     "/status",
+		JSON:         false,
 		OKMessage:    "ok",
 		ErrorMessage: "fail",
 		Check: Check{

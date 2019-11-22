@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"log"
 	"net/http"
@@ -38,7 +39,11 @@ func main() {
 
 func statusCheck(w http.ResponseWriter, r *http.Request) {
 	msg := ""
+
+	// Create a check from the configured type
 	chk := check.Make(cnf.Check.Type)
+
+	// Check service availability
 	alive, err := chk.Check(cnf.Check)
 	if err != nil {
 		log.Printf("ERROR: %s", err)
@@ -49,5 +54,15 @@ func statusCheck(w http.ResponseWriter, r *http.Request) {
 		msg = cnf.ErrorMessage
 	}
 	log.Printf("status check: %s", msg)
-	w.Write([]byte(msg))
+
+	// Return the response
+	if cnf.JSON {
+		m := map[string]string{}
+		m[cnf.Endpoint[1:]] = msg
+		js, _ := json.Marshal(m)
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(js)
+	} else {
+		w.Write([]byte(msg))
+	}
 }
