@@ -35,7 +35,8 @@ CMD [ "/sc/status", "-c", "/sc/config.yaml" ]
 
 ## Configuration
 
-Create a `config.yaml` file on the system.
+Create a `config.yaml` file on the same path as the status binary file.
+
 If you want to place it anywhere on the system's path, just pass the `-c path/to/config.yaml` parameter on the startup.
 
 ```
