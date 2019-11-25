@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 
-	"kununu.com/status/check"
-	"kununu.com/status/config"
+	"enkodr.dev/status/check"
+	"enkodr.dev/status/config"
 )
 
 const defaultPort = "8008"

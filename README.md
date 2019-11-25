@@ -20,13 +20,13 @@ docker run -itd -p 8008:8008 .
 
 1. Build this Dockerimage
 ```
-docker build -t kununu/statuscheck .
+docker build -t enkodr/statuscheck .
 ```
 2. Create your `config.yaml` file
 
 3. Create your final image
 ```
-FROM kununu/statuscheck
+FROM enkodr/statuscheck
 
 COPY config.yaml /sc/config.yaml
 

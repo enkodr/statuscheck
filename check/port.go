@@ -5,7 +5,7 @@ import (
 	"net"
 	"time"
 
-	"kununu.com/status/config"
+	"enkodr.dev/status/config"
 )
 
 // Port identifies the port structure to check

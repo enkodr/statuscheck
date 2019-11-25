@@ -1,4 +1,4 @@
-module kununu.com/status
+module enkodr.dev/status
 
 go 1.13
 

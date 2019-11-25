@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"kununu.com/status/config"
+	"enkodr.dev/status/config"
 )
 
 // HTTP represents the configuration of the endpoint to check

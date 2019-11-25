@@ -1,6 +1,6 @@
 package check
 
-import "kununu.com/status/config"
+import "enkodr.dev/status/config"
 
 // Status is the interface to be used for creating testing endpoints
 type Status interface {
